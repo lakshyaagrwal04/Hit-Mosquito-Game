@@ -1,0 +1,51 @@
+body{
+    margin: 0px;
+    font-size: 18px;
+}
+.outer-area{
+    width: 450px;
+    height: 505px;
+    margin: auto;
+    margin-top: 20px;
+    border: solid 1px blue;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    gap: 5px;
+}
+.header-area{
+    width: 450px;
+    height: 50px;
+    background-color: #23f06a;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+.start-btn{
+    background-color: #4177da;
+    cursor: pointer;
+    border-radius: 5px;
+    color: white;
+    padding: 5px 15px;
+    border: none;
+}
+.start-btn:disabled{
+    background-color: #a1b7e1;
+}
+.game-area{
+    width: 450px;
+    height: 450px;
+    background-color: #f4c890;
+    position: relative;
+}
+.mosquito{
+    height: 50px;
+    width: 50px;
+    position: relative;
+    border-radius: 50%;
+}
+.score-area{
+    display: flex;
+    gap: 5px;
+}

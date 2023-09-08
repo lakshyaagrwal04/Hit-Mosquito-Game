@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hit Mosquito Game</title>
+    <link href="./style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="outer-area">
+        <div class="header-area">
+            <div class="score-area">
+                <div class="count-txt">Score: </div>
+                <div class="count" id="score"> 0</div>
+            </div>
+            <button class="start-btn" id="startbtn" onclick="startgame();">START</button>
+            <div class="timer" id="timer">00:00</div>
+        </div>
+        <div class="game-area">
+            <img src="./cartoon-mosquito.png" alt="Mosquito" class="mosquito" id="mosquito" onclick="hitmosquito();">
+        </div>
+    </div>
+<script>
+    
+    let hitCount = 0;
+    let started = false;
+
+    const startbtn = document.getElementById('startbtn');
+    startbtn.disabled=false;
+    let clock = 0;
+
+    function startgame(){
+        startbtn.disabled=true;
+        let mosquito = document.getElementById('mosquito');
+        let timer = document.getElementById('timer');
+        clock = 23;
+        // hitCount = 0;
+        // document.getElementById('score').innerText="0";
+        started = true;
+        
+
+    let time = setInterval(()=>{
+        
+        mosquito.style.background="none";
+        let i = Math.floor(Math.random()*400)+1;
+        let j = Math.floor(Math.random()*400)+1;
+        mosquito.style.top=i+"px";
+        mosquito.style.left=j+"px";
+        timer.innerHTML="00:"+(clock < 10 ? "0" + clock : clock);
+        clock--;
+    },1250)
+    setTimeout(()=>{
+        clearInterval(time);
+        mosquito.style.background = "none";
+        started = false;
+        startbtn.disabled=false;
+        clock = 0;
+    },30000)
+    
+    }
+    function hitmosquito(){
+        
+        if(started){
+        mosquito.style.background="#cc0a0aed";
+        hitCount++;
+        document.getElementById('score').innerText=hitCount;
+    }
+        
+        
+    }
+
+</script>
+    
+</body>
+</html>
